@@ -5,9 +5,16 @@ import aws_cdk as cdk
 
 from cdk.cdk_stack import CdkStack
 
-
 app = cdk.App()
-CdkStack(app, "CdkStack",
+CdkStack(app, "ImageThumbnailCreatorCdkStack",
+    cdk.aws_s3.Bucket(
+        bucket_name="pd_bucketi2321209", 
+        versioned=True, 
+        removal_policy=cdk.RemovalPolicy.DESTROY, 
+        auto_delete_objects=True)
+
+
+
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
